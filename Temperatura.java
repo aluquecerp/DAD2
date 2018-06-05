@@ -6,30 +6,47 @@ public class Temperatura {
 	private int idTemp;
 	private float valor;
 	private long date;
+	private int idDispositivo;
 	
 	
+	
+
+
 	public Temperatura() {
-		this(0,0,0);
+		this(0,0,0,0);
 	}
 
 
-	public Temperatura(int id, float valor, long date) {
+	public Temperatura(int id, float valor, long date,int idDisp) {
 		super();
 		this.idTemp = id;
 		this.valor = valor;
 		this.date = date;
+		this.idDispositivo = idDisp;
 
 	}
 
-
-	public int getId() {
+	
+	public int getIdTemp() {
 		return idTemp;
 	}
 
 
-	public void setId(int id) {
-		this.idTemp = id;
+	public void setIdTemp(int idTemp) {
+		this.idTemp = idTemp;
 	}
+
+
+	public int getIdDispositivo() {
+		return idDispositivo;
+	}
+
+
+	public void setIdDispositivo(int idDispositivo) {
+		this.idDispositivo = idDispositivo;
+	}
+
+
 
 
 	public float getValor() {
@@ -57,6 +74,7 @@ public class Temperatura {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (int) (date ^ (date >>> 32));
+		result = prime * result + idDispositivo;
 		result = prime * result + idTemp;
 		result = prime * result + Float.floatToIntBits(valor);
 		return result;
@@ -74,6 +92,8 @@ public class Temperatura {
 		Temperatura other = (Temperatura) obj;
 		if (date != other.date)
 			return false;
+		if (idDispositivo != other.idDispositivo)
+			return false;
 		if (idTemp != other.idTemp)
 			return false;
 		if (Float.floatToIntBits(valor) != Float.floatToIntBits(other.valor))
@@ -84,7 +104,8 @@ public class Temperatura {
 
 	@Override
 	public String toString() {
-		return "Temperatura [id=" + idTemp + ", valor=" + valor + ", date=" + date + "]";
+		return "Temperatura [idTemp=" + idTemp + ", valor=" + valor + ", date=" + date + ", idDispositivo="
+				+ idDispositivo + "]";
 	}
 
 

@@ -6,19 +6,31 @@ public class Toldo {
 	private int id;
 	private boolean state;
 	private long date;
+	private int idDispositivo;
 	
 	
 	public Toldo() {
-		this(0,false,0);
+		this(0,false,0,0);
 	}
 
 
-	public Toldo(int id, boolean state, long date) {
+	public Toldo(int id, boolean state, long date, int idDisp) {
 		super();
 		this.id = id;
 		this.state = state;
 		this.date = date;
+		this.idDispositivo = idDisp;
 
+	}
+
+
+	public int getIdDispositivo() {
+		return idDispositivo;
+	}
+
+
+	public void setIdDispositivo(int idDispositivo) {
+		this.idDispositivo = idDispositivo;
 	}
 
 
@@ -59,6 +71,7 @@ public class Toldo {
 		int result = 1;
 		result = prime * result + (int) (date ^ (date >>> 32));
 		result = prime * result + id;
+		result = prime * result + idDispositivo;
 		result = prime * result + (state ? 1231 : 1237);
 		return result;
 	}
@@ -77,6 +90,8 @@ public class Toldo {
 			return false;
 		if (id != other.id)
 			return false;
+		if (idDispositivo != other.idDispositivo)
+			return false;
 		if (state != other.state)
 			return false;
 		return true;
@@ -85,7 +100,7 @@ public class Toldo {
 
 	@Override
 	public String toString() {
-		return "Toldo [id=" + id + ", state=" + state + ", date=" + date + "]";
+		return "Toldo [id=" + id + ", state=" + state + ", date=" + date + ", idDispositivo=" + idDispositivo + "]";
 	}
 
 

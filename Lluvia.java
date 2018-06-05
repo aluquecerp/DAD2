@@ -5,18 +5,30 @@ public class Lluvia {
 	private int id;
 	private long date;
 	private boolean state;
+	private int idDispositivo;
 	
 	
+	public int getIdDispositivo() {
+		return idDispositivo;
+	}
+
+
+	public void setIdDispositivo(int idDispositivo) {
+		this.idDispositivo = idDispositivo;
+	}
+
+
 	public Lluvia() {
-		this(0,0,false);
+		this(0,0,false,0);
 	}
 	
 	
-	public Lluvia(int id, long date, boolean state) {
+	public Lluvia(int id, long date, boolean state, int idDisp) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.state = state;
+		this.idDispositivo = idDisp;
 	}
 
 
@@ -56,6 +68,7 @@ public class Lluvia {
 		int result = 1;
 		result = prime * result + (int) (date ^ (date >>> 32));
 		result = prime * result + id;
+		result = prime * result + idDispositivo;
 		result = prime * result + (state ? 1231 : 1237);
 		return result;
 	}
@@ -74,6 +87,8 @@ public class Lluvia {
 			return false;
 		if (id != other.id)
 			return false;
+		if (idDispositivo != other.idDispositivo)
+			return false;
 		if (state != other.state)
 			return false;
 		return true;
@@ -82,7 +97,7 @@ public class Lluvia {
 
 	@Override
 	public String toString() {
-		return "Lluvia [id=" + id + ", date=" + date + ", state=" + state + "]";
+		return "Lluvia [id=" + id + ", date=" + date + ", state=" + state + ", idDispositivo=" + idDispositivo + "]";
 	}
 
 	
